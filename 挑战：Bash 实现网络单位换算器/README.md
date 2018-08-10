@@ -39,7 +39,7 @@ $ Convert 1024
 
 1. export 导出函数
 
-##解题
+## 解题
 
 ```shell
 #!/bin/bash
