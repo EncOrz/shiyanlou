@@ -31,7 +31,7 @@ COUNT    USER
 3. 使用数组来统计每个用户的进程数
 4. 在 END 里将统计结果通过管道传递给 sort 命令来排序
 
-##解题
+## 解题
 
 ```bash
 $ vi count_process.awk
