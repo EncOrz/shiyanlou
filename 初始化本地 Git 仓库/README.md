@@ -17,7 +17,7 @@
 2. 远程仓库地址固定为 [`git@shiyanlou.com](mailto:%60git@shiyanlou.com)/HelloGit.git`，远程版本库名称为`origin`。
 3. 需要在本地目录中创建 `README.md` ，文件名为 `README.md`。并在其中增加文本 `Hello World`。
 
-###步骤
+### 步骤
 
 ```bash
 $ mkdir /home/shiyanlou/HelloGit
