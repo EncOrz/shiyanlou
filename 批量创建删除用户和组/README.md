@@ -49,7 +49,7 @@ $ bash test.sh del teacher stu 6
 - chpasswd
 - md5sum
 
-##解题
+## 解题
 
 `vim userctr.sh && chmod 755 userctr.sh`
 
