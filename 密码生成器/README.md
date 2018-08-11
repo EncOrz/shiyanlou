@@ -33,13 +33,23 @@ $ ./genpass.sh
 
 ```shell
 #!/bin/bash
-        w=`head -c 100 /dev/urandom | tr -dc a-z0-9A-Z | cut -c 2-11`
-        p=`echo '><+-{}:.&;' | cut -c $[$RANDOM%10+1]`
-        pp=`echo '><+-{}:.&;' | cut -c $[RANDOM%10+1]`
-echo $p$w$pp
 
-##tr 标准输出转换输出 
-##	-d 刪除字符串1中所有輸入字符 -c 用字符串1中字符集的补集替换此字符集，要求字符集为ASCII。
-##	-dc 一起用相当于，删除字符集的补集，结果会是只剩字符集中的字符
+i=1;while true
+do
+    pw=`head -c 700 /dev/urandom | tr -dc a-zA-Z0-9'[:punct:]' \
+       | sed -r 's/[^0-9a-zA-Z><+\-\{\}\:.&;]//g' | sed 's/\\\\//g' \
+       | cut -c $1-$((i+12))` 
+ #   echo r:$pw
+   echo $pw | \
+        grep -E '[0-9]+' \
+       | grep -E '[a-z]+' \
+       | grep -E '[A-Z]+' \
+       | grep -E '[><\+\-\{\}\&;]+' > /dev/null
+   if [ $? -eq 0 ];then
+        break
+   fi
+done
+echo $pw
+
 ```
 
