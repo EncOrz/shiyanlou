@@ -10,8 +10,8 @@ Convert(){
             for i in $(seq 1 $unit_c)
             do 
                   let n=$i-1
-                  dnum=$((1024**$n))
-                  dv=$(($1/$dnum))
+                  dnum=$((1024**n))
+                  dv=$(($1/dnum))
                   if [ $dv -lt 1024 ];then
                       ut=$(echo $unit | cut -d " " -f $i) 
                         break
@@ -26,3 +26,4 @@ Convert(){
 }
 
 Convert $*
+export -f Convert

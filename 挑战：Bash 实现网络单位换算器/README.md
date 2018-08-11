@@ -15,7 +15,7 @@ bash /home/shiyanlou/Conversion.sh 1024
 
 例如转换 1099511627776 时：
 
-```
+```shell
 bash /home/shiyanlou/Conversion.sh 1099511627776
 1024 GB
 ```
@@ -54,8 +54,8 @@ Convert(){
             for i in $(seq 1 $unit_c)
             do 
                   let n=$i-1
-                  dnum=$((1024**$n))
-                  dv=$(($1/$dnum))
+                  dnum=$((1024**n))
+                  dv=$(($1/dnum))
                   if [ $dv -lt 1024 ];then
                       ut=$(echo $unit | cut -d " " -f $i) 
                         break
@@ -70,6 +70,7 @@ Convert(){
 }
 
 Convert $*
+export -f Convert
 
 ## $1 =~ ^[0-9]+$ 判断正整数
 ##通过wc -w 来获取单位unit总数
