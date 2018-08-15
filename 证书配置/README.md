@@ -32,6 +32,8 @@ $ ssh shiyanlou@localhost
 $ ssh-keygen -t rsa ##生成一对公钥私钥
 $ ls -la ~/.ssh/ ##id_rsa,id_rsa.pub
 $ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys ##公钥给服务器端，远程用scp shiyanlou@host:~/ 再操作，localhost就直接生成就可以
+##公钥传输给服务器端(172.16.8.11)
+# $ ssh-copy-id -i ~/.ssh/id_rsa.pub root@172.16.8.11
 $ sudo chmod 600 ~/.ssh/authorized_keys
 $ sudo vi /etc/ssh/sshd_config
 
