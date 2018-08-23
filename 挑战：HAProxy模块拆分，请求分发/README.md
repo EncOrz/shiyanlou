@@ -50,6 +50,11 @@ mode http
     clitimeout 50000
     srvtimeout 50000
     errorfile 403 /etc/haproxy/errors/403.http
+    errorfile 408 /etc/haproxy/errors/408.http
+    errorfile 500 /etc/haproxy/errors/500.http
+    errorfile 502 /etc/haproxy/errors/502.http
+    errorfile 503 /etc/haproxy/errors/503.http
+    errorfile 504 /etc/haproxy/errors/504.http    
 
 frontend shiyanlou
     bind 115.29.233.149:80
@@ -87,17 +92,7 @@ backend static
     balance source
     server nginx-static-1  10.123.121.54:80 weight 1 check inter 2000 rise 3 fall 3
     server nginx-static-2  10.167.112.52:80 weight 1 check inter 2000 rise 3 fall 3 backup
-
-##以下可不用
-listen HAProxy_status    
-    bind 0.0.0.0:3000 
-    stats uri /haproxy-status 
-    stats refresh 30s 
-    stats realm welcome \login HAProxy 
-    stats auth admin:admin    
-    stats hide-version    
-    stats admin if TRUE 
-
+    
 ```
 
 ```shell
