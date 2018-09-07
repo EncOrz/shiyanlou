@@ -90,7 +90,7 @@ mysql> LOAD DATA INFILE '/home/shiyanlou/loudatabase/shiyanlou_usercourse.csv'
 ##创建用户“shiyanlou”并设置权限
 mysql> CREATE USER shiyanlou; 
 mysql> GRANT SELECT,UPDATE
-	 > ON `shiyanlou-stagin`.*
+	 > ON `shiyanlou-staging`.*
 	 > TO shiyanlou@localhost
 	 > INDENTIFIED BY "Xd4a8lKjeL9Z";
 mysql> FLUSH PRVILIEGES;
